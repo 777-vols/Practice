@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import styled, { createGlobalStyle } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 
 const Global = createGlobalStyle`
 *{
@@ -10,19 +11,25 @@ const Global = createGlobalStyle`
 	padding:0;
 	box-sizing:border-box;
 }
-body{
+/* body{
 	background:black;
 	display:flex;
 	justify-content: center
-}
+} */
+/* #root{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+} */
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<>
+	<BrowserRouter>
 		<Global />
 		<App />
-	</>
+	</BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
