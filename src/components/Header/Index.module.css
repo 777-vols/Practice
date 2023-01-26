@@ -1,7 +1,7 @@
 .header {
 	max-width: 100%;
 	background: rgb(52, 52, 52);
-	height: 70px;
+	height: 9vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -20,6 +20,7 @@
 	justify-content: space-between;
 }
 
+
 .navi_item {
 	text-decoration: none;
 	cursor: pointer;
@@ -28,10 +29,16 @@
 	transition: 0.1s;
 }
 
-.navi_item::after {
+.activeClassName {
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+}
+
+.activeClassName::after {
 	content: "";
 	display: block;
 	width: 100%;
-	height: 1.5px;
+	height: 1px;
 	background-color: white;
 }

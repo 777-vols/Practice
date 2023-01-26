@@ -1,0 +1,8 @@
+.keyboard_wrapper {
+	grid-area: k;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	padding: 30px;
+	border-top: 2px solid rgb(33, 34, 33);
+}

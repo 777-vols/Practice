@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import s from './Index.module.css'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
@@ -13,15 +13,16 @@ const Header = () => {
 
 			<div className={s.navi_bar}>
 				<div>
-					<Link className={s.navi_item} to="/">
+					<NavLink className={({ isActive }) => isActive ? s.activeClassName : s.navi_item}
+						to="/">
 						Home
-					</Link>
+					</NavLink>
 				</div>
 
 				<div>
-					<Link className={s.navi_item} to="/settings">
+					<NavLink className={({ isActive }) => isActive ? s.activeClassName : s.navi_item} to="/settings">
 						Settings
-					</Link>
+					</NavLink>
 				</div>
 			</div>
 		</header>

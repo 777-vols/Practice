@@ -1,0 +1,20 @@
+.history_wrapper {
+	grid-area: h;
+	padding: 0px 10px 0px 10px;
+	border-left: 2px solid rgb(33, 34, 33);
+}
+
+.header_history {
+	display: flex;
+	justify-content: center;
+}
+
+.results_cont {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+.result {
+	padding: 5px;
+}
