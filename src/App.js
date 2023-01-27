@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import styled from 'styled-components'
-import Header from "./components/Header/Header";
-import Home from "./pages/Home/Home";
-import Settings from "./pages/Settings/Settings";
+import Header from "@components/Header/Header";
+import Home from "@pages/Home/Home";
+import Settings from "@pages/Settings/Settings";
 
 const AppWrapper = styled.div`
 	@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
