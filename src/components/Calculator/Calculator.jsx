@@ -3,18 +3,13 @@ import Keyboard from './Keyboard/Keyboard';
 import History from './History/History';
 import Screen from './Screen/Screen';
 
-const Calculator = () => {
+const Calculator = (props) => {
+	// console.log(props.props);
 	return (
 		<div className={c.calc}>
-			{/* <div className={c.keyboard_wrapper}> */}
-			<Keyboard />
-			{/* </div> */}
-			{/* <div className={c.history_wrapper}> */}
-			<History />
-			{/* </div> */}
-			{/* <div className={c.screen_wrapper}> */}
-			<Screen />
-			{/* </div> */}
+			<Keyboard props={props.props} />
+			<History props={props.props} />
+			<Screen props={props.props} />
 		</div>
 	)
 };
