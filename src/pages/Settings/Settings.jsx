@@ -1,9 +1,9 @@
-import SettingsPanel from "../../components/SettingsPanel/SettingsPanel";
+import SettingsPanelContainer from "../../components/SettingsPanel/SettingsPanelContainer";
 
 const Settings = () => {
 	return (
 		<div>
-			<SettingsPanel />
+			<SettingsPanelContainer />
 		</div>
 	)
 }

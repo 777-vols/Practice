@@ -13,6 +13,19 @@ const Global = createGlobalStyle`
 	padding:0;
 	box-sizing:border-box;
 }
+
+body[data-theme='light'] {
+   background-color: #fff;
+	color: black;
+}
+body[data-theme='dark'] {
+   background-color: black;
+	color: white;
+}
+body[data-theme='colored'] {
+   background-color: rgb(119, 74, 164);
+	color: white;
+}
 `
 const theme = {
 	colors: {

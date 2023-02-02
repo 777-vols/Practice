@@ -1,23 +1,22 @@
-// import { connect } from "react-redux";
-// import { UpdateNewExpressionActionCreator } from '@store/reducers/HomeReducer';
-// import Home from './Home'
+import { connect } from "react-redux";
+import { ThemeChangeActionCreator } from '@store/reducers/SettingsReducer';
+import SettingsPanel from "./SettingsPanel";
 
-// const MapStateToProps = (state) => {
-// 	// console.log(state);
-// 	return {
-// 		HomePage: state.HomePage,
-// 		newExpression: state.HomePage.newExpression
-// 	}
-// }
-// const MapDispatchToProps = (dispatch) => {
-// 	return {
-// 		UpdateExpression: (text) => {
-// 			let action = UpdateNewExpressionActionCreator(text);
-// 			dispatch(action);
-// 		}
-// 	}
-// }
+const MapStateToProps = (state) => {
+	// console.log(state);
+	return {
+		SettingsPage: state.SettingsPage,
+	}
+}
+const MapDispatchToProps = (dispatch) => {
+	return {
+		NewColor: (color) => {
+			let action = ThemeChangeActionCreator(color);
+			dispatch(action);
+		}
+	}
+}
 
-// const HomeContainer = connect(MapStateToProps, MapDispatchToProps)(Home);
+const SettingsPanelContainer = connect(MapStateToProps, MapDispatchToProps)(SettingsPanel);
 
-// export default HomeContainer;
+export default SettingsPanelContainer;

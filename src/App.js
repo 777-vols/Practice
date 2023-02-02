@@ -11,14 +11,14 @@ const AppWrapper = styled.div`
 	max-width:100%;
 	height: 100vh;
 	/* background: gray; */
-	background-color: ${props => props.theme.colors.colored.BgColor};
-	color:${props => props.theme.colors.dark.text};
+	/* background-color: ${props => props.theme.colors.colored.BgColor}; */
+	/* color:${props => props.theme.colors.dark.text}; */
 	
 `
 
 const App = () => {
 	return (
-		<AppWrapper>
+		<AppWrapper id="AppWrapper">
 			<Header />
 
 			<Routes>
