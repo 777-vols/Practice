@@ -1,22 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import s from './SettingsPanel.module.css'
+import PropTypes from 'prop-types';
 
 
-const SettingsPanel = (props) => {
+const SettingsPanel = ({ DeleteAllHistory, NewColor, newTheme }) => {
+
+	function DeleteHistory() {
+		DeleteAllHistory();
+	}
 
 	function toggleTheme() {
 		let select = document.querySelector('select');
-
-		(function newTheme() {
-			props.NewColor(select.value)
-		})();
-		(function test() {
-			setTheme(select.value);
-		})();
+		NewColor(select.value)
+		setTheme(select.value);
 	}
 
-	const [theme, setTheme] = useState(props.SettingsPage.newTheme);
+	const [theme, setTheme] = useState(newTheme);
 
 	useEffect(() => {
 		document.body.setAttribute('data-theme', theme);
@@ -30,11 +30,10 @@ const SettingsPanel = (props) => {
 			</div>
 
 			<div className={s.panel}>
-
 				<div className={s.select_container}>
 					<a className={s.select_header}>Switch Theme</a>
 					<div className={s.select_wrapper}>
-						<select onChange={toggleTheme} className={s.select}>
+						<select value={newTheme} onChange={toggleTheme} className={s.select}>
 							<option value="light">Light Theme</option>
 							<option value="colored">Colored Theme</option>
 							<option value="dark">Dark Theme</option>
@@ -43,11 +42,15 @@ const SettingsPanel = (props) => {
 				</div>
 
 				<div className={s.button_block}>
-					<button className={s.btn}>Clear All History</button>
+					<button onClick={DeleteHistory} className={s.btn}>Clear All History</button>
 				</div>
 			</div>
 		</div>
 	)
+}
+
+SettingsPanel.propTypes = {
+	newTheme: PropTypes.string
 }
 
 export default SettingsPanel;

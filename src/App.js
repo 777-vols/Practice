@@ -10,10 +10,6 @@ const AppWrapper = styled.div`
 	font-family: 'Open Sans', sans-serif;
 	max-width:100%;
 	height: 100vh;
-	/* background: gray; */
-	/* background-color: ${props => props.theme.colors.colored.BgColor}; */
-	/* color:${props => props.theme.colors.dark.text}; */
-	
 `
 
 const App = () => {

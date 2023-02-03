@@ -1,10 +1,25 @@
 let UPDATE_NEW_EXPRESSION = 'UPDATE_NEW_EXPRESSION';
+let DELETE_ALL_HISTORY = 'DELETE_ALL_HISTORY';
 
 let initialState = {
 	history: [
 		{ id: 1, expression: "1+2*3" },
 		{ id: 2, expression: "9/2*3" },
-		{ id: 3, expression: "1-5/2" },
+		{ id: 4, expression: "1-5/2" },
+		{ id: 5, expression: "1-5/2" },
+		{ id: 6, expression: "1-5/2" },
+		{ id: 7, expression: "1-5/2" },
+		{ id: 8, expression: "1-5/2" },
+		{ id: 9, expression: "1-5/2" },
+		{ id: 10, expression: "1-5/2" },
+		{ id: 11, expression: "1-5/2" },
+		{ id: 12, expression: "1-5/2" },
+		{ id: 13, expression: "1-5/2" },
+		{ id: 14, expression: "1-5/2" },
+		{ id: 15, expression: "1-5/2" },
+		{ id: 16, expression: "1-5/2" },
+		{ id: 17, expression: "1-5/2" },
+		{ id: 18, expression: "1-5/2" },
 	],
 	buttons: [
 		{ id: 0, name: "C" },
@@ -34,11 +49,18 @@ let initialState = {
 const HomeReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case UPDATE_NEW_EXPRESSION: {
-		}
 			return {
 				...state,
 				newExpression: action.newExpresion,
 			}
+		}
+		case DELETE_ALL_HISTORY: {
+			return {
+				...state,
+				history: [],
+				newExpression: ''
+			}
+		}
 		default:
 			return state;
 	}
@@ -48,4 +70,8 @@ export default HomeReducer;
 
 export const UpdateNewExpressionActionCreator = (text) => ({
 	type: UPDATE_NEW_EXPRESSION, newExpresion: text
+})
+
+export const DeleteAllHistoryActionCreator = () => ({
+	type: DELETE_ALL_HISTORY
 })

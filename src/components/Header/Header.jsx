@@ -1,14 +1,13 @@
-import styled from 'styled-components'
 import s from './Index.module.css'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 
 const Header = () => {
 	return (
 		<header className={s.header}>
-			<div className={s.logo}>
-				<a>Calculator App</a>
+			<div className={s.logoWrapper}>
+				<NavLink className={s.logo} to="/">Calculator App</NavLink>
 			</div>
 
 			<div className={s.navi_bar}>

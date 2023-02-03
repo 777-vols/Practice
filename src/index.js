@@ -6,6 +6,7 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from './store/index'
+import theme from '@constants/constatnts'
 
 const Global = createGlobalStyle`
 *{
@@ -19,30 +20,14 @@ body[data-theme='light'] {
 	color: black;
 }
 body[data-theme='dark'] {
-   background-color: black;
+   background-color: rgb(30, 30, 30);
 	color: white;
 }
 body[data-theme='colored'] {
    background-color: rgb(119, 74, 164);
-	color: white;
+	color: #FFD700;
 }
 `
-const theme = {
-	colors: {
-		light: {
-			BgColor: "white",
-			text: "black"
-		},
-		dark: {
-			BgColor: "rgb(73, 73, 73)",
-			text: "white"
-		},
-		colored: {
-			BgColor: "rgb(121, 121, 224)",
-			text: "red"
-		}
-	}
-}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

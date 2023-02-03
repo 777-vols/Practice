@@ -14,7 +14,7 @@ const Screen = (props) => {
 
 	return (
 		<div className={s.screen_wrapper}>
-			<input onChange={OnPostChange} value={props.props.newExpression} ref={newPostElement} />
+			<input id='Input' onChange={OnPostChange} value={props.props.newExpression} ref={newPostElement} />
 		</div>
 	)
 }

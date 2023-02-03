@@ -13,11 +13,8 @@ const SettingsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case THEME_CHANGE: {
 		}
-			// console.log(action.newTheme);
 			for (let color of Object.keys(state.colors)) {
-				// console.log(color);
 				if (color === action.newTheme) {
-					// console.log(state.colors[color]);
 					return {
 						...state,
 						newTheme: state.colors[color]
@@ -34,3 +31,4 @@ export default SettingsReducer;
 export const ThemeChangeActionCreator = (color) => ({
 	type: THEME_CHANGE, newTheme: color
 })
+
