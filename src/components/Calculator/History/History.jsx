@@ -1,10 +1,10 @@
 import HistoryItem from '@components/HistoryItem/HistoryItem';
 import s from './History.module.css'
+import PropTypes from 'prop-types';
 
-const History = (props) => {
-	// console.log(props.props.HomePage.history);
+const History = ({ allHistory }) => {
 
-	let HistoryItems = props.props.HomePage.history.map(el => <HistoryItem key={el.id} props={el.expression} />);
+	let HistoryItems = allHistory.map(el => <HistoryItem key={el.id} props={el.expression} />);
 
 	return (
 		<div className={s.history_wrapper}>
@@ -16,6 +16,10 @@ const History = (props) => {
 			</div>
 		</div>
 	)
+}
+
+History.propTypes = {
+	allHistory: PropTypes.array
 }
 
 export default History;

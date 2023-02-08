@@ -1,15 +1,14 @@
 import c from './Index.module.css';
-import Keyboard from './Keyboard/Keyboard';
 import History from './History/History';
 import Screen from './Screen/Screen';
+import KeyboardContainer from './Keyboard/KeyboardContainer';
 
 const Calculator = (props) => {
-	// console.log(props.props);
 	return (
 		<div className={c.calc}>
-			<Keyboard props={props.props} />
-			<History props={props.props} />
-			<Screen props={props.props} />
+			<KeyboardContainer />
+			<History allHistory={props.props.HomePage.history} />
+			<Screen newExpression={props.props.newExpression} UpdateExpression={props.props.UpdateExpression} />
 		</div>
 	)
 };

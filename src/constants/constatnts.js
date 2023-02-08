@@ -1,3 +1,8 @@
+export const UPDATE_NEW_EXPRESSION = 'UPDATE_NEW_EXPRESSION';
+export const DELETE_ALL_HISTORY = 'DELETE_ALL_HISTORY';
+export const THEME_CHANGE = 'THEME_CHANGE';
+
+
 const theme = {
 	colors: {
 		light: {
@@ -15,4 +20,4 @@ const theme = {
 	}
 }
 
-export default theme
+export default theme;

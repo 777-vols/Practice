@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { ThemeChangeActionCreator } from '@store/reducers/SettingsReducer';
-import { DeleteAllHistoryActionCreator } from '@store/reducers/HomeReducer'
+import { ThemeChangeActionCreator } from '@store/actions/actions';
+import { DeleteAllHistoryActionCreator } from '@store/actions/actions'
 import SettingsPanel from "./SettingsPanel";
 
 const MapStateToProps = (state) => {

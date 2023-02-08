@@ -50,6 +50,8 @@ const SettingsPanel = ({ DeleteAllHistory, NewColor, newTheme }) => {
 }
 
 SettingsPanel.propTypes = {
+	DeleteAllHistory: PropTypes.func,
+	NewColor: PropTypes.func,
 	newTheme: PropTypes.string
 }
 

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { UpdateNewExpressionActionCreator } from '@store/reducers/HomeReducer';
+import { UpdateNewExpressionActionCreator } from '@store/actions/actions';
 import Home from './Home'
 
 const MapStateToProps = (state) => {

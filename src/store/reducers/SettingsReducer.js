@@ -1,4 +1,4 @@
-let THEME_CHANGE = 'THEME_CHANGE';
+import * as actionsTypes from '@constants/constatnts'
 
 let initialState = {
 	colors: {
@@ -11,7 +11,7 @@ let initialState = {
 
 const SettingsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case THEME_CHANGE: {
+		case actionsTypes.THEME_CHANGE: {
 		}
 			for (let color of Object.keys(state.colors)) {
 				if (color === action.newTheme) {
@@ -28,7 +28,5 @@ const SettingsReducer = (state = initialState, action) => {
 
 export default SettingsReducer;
 
-export const ThemeChangeActionCreator = (color) => ({
-	type: THEME_CHANGE, newTheme: color
-})
+
 
