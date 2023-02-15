@@ -1,14 +1,14 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from "redux";
 import HomeReducer from './reducers/HomeReducer';
 import SettingsReducer from './reducers/SettingsReducer';
+import { createStore } from "redux";
 
-const rootReducer = combineReducers({
+
+const reducer = combineReducers({
 	HomePage: HomeReducer,
 	SettingsPage: SettingsReducer
 })
 
-let store = configureStore({
-	reducer: rootReducer
-});
+const store = createStore(reducer);
 
 export default store;

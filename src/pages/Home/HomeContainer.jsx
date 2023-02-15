@@ -1,21 +1,20 @@
 import { connect } from "react-redux";
-import { UpdateNewExpressionActionCreator } from '@store/actions/actions';
 import Home from './Home'
+import * as actions from '@store/actions/actions'
+import { bindActionCreators } from "redux";
+
 
 const MapStateToProps = (state) => {
-	// console.log(state);
 	return {
 		HomePage: state.HomePage,
-		newExpression: state.HomePage.newExpression
+		value: state.HomePage.valueManager.value,
+		receiver: state.HomePage.receiver
 	}
 }
 const MapDispatchToProps = (dispatch) => {
 	return {
-		UpdateExpression: (text) => {
-			let action = UpdateNewExpressionActionCreator(text);
-			dispatch(action);
-		}
-	}
+		actions: bindActionCreators(actions, dispatch),
+	};
 }
 
 const HomeContainer = connect(MapStateToProps, MapDispatchToProps)(Home);

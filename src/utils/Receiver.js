@@ -7,10 +7,13 @@ export const Receiver = class {
 	}
 
 	execute() {
+		// console.log(this.commandList);
 		let result = 0;
 		for (let i = 0; i < this.counter; i++) {
+			console.log(this.commandList[i].execute(result));
 			result = this.commandList[i].execute(result);
 		}
+		// console.log(result);
 		return result;
 	}
 
@@ -19,18 +22,18 @@ export const Receiver = class {
 		this.counter += 1;
 	}
 
-	undo() {
-		if (this.counter > 0) {
-			this.counter -= 1;
-		} else {
-			this.counter = 0;
-		}
-	}
+	// undo() {
+	// 	if (this.counter > 0) {
+	// 		this.counter -= 1;
+	// 	} else {
+	// 		this.counter = 0;
+	// 	}
+	// }
 
-	redo() {
-		if (this.counter < this.commandList.length) {
-			this.counter += 1;
-		} else {
-		}
-	}
+	// redo() {
+	// 	if (this.counter < this.commandList.length) {
+	// 		this.counter += 1;
+	// 	} else {
+	// 	}
+	// }
 };

@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from './store/index'
 import theme from '@constants/constatnts'
 
+
 const Global = createGlobalStyle`
 *{
 	margin:0;

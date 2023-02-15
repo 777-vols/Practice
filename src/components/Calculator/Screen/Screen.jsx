@@ -2,25 +2,17 @@ import s from './Screen.module.css'
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Screen = ({ newExpression, UpdateExpression }) => {
-
-	let newPostElement = React.createRef();
-
-	let OnPostChange = () => {
-		let text = newPostElement.current.value;
-		UpdateExpression(text);
-	}
-
+const Screen = ({ receiver, value }) => {
 	return (
 		<div className={s.screen_wrapper}>
-			<input id='Input' onChange={OnPostChange} value={newExpression} ref={newPostElement} />
+			<a className={s.result}>{receiver.showingResult ? receiver.execute() : value}</a>
 		</div>
 	)
 }
 
 Screen.propTypes = {
-	newExpression: PropTypes.string,
-	UpdateExpression: PropTypes.func,
+	receiver: PropTypes.object,
+	value: PropTypes.number,
 }
 
 export default Screen;
