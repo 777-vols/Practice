@@ -48,10 +48,10 @@ export const onDotClick = () => ({
 	type: actionTypes.DOT,
 });
 
-export const onClearClickSumbol = () => ({
-	type: actionTypes.CLEAR_SUMBOL,
-});
-
 export const onClearExpressionClick = () => ({
 	type: actionTypes.CLEAR_EXPRESSION,
+});
+
+export const onClearAllClick = () => ({
+	type: actionTypes.CLEAR_ALL,
 });

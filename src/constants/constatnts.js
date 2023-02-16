@@ -13,8 +13,8 @@ export const DIVIDE = "DIVIDE";
 export const EQUAL = "EQUAL";
 export const DOT = "DOT";
 export const BRACKET = "BRACKET";
-export const CLEAR_SUMBOL = "CLEAR_SUMBOL";
 export const CLEAR_EXPRESSION = "CLEAR_EXPRESSION";
+export const CLEAR_ALL = "CLEAR_ALL";
 
 
 const theme = {

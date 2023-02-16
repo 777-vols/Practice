@@ -13,70 +13,68 @@ let initialState = {
 		{ id: 2, expression: "9/2*3" },
 		{ id: 4, expression: "1-5/2" },
 		{ id: 5, expression: "1-5/2" },
-		{ id: 6, expression: "1-5/2" },
-		{ id: 7, expression: "1-5/2" },
-		{ id: 8, expression: "1-5/2" },
-		{ id: 9, expression: "1-5/2" },
-		{ id: 10, expression: "1-5/2" },
-		{ id: 11, expression: "1-5/2" },
-		{ id: 12, expression: "1-5/2" },
-		{ id: 13, expression: "1-5/2" },
-		{ id: 14, expression: "1-5/2" },
-		{ id: 15, expression: "1-5/2" },
-		{ id: 16, expression: "1-5/2" },
-		{ id: 17, expression: "1-5/2" },
-		{ id: 18, expression: "1-5/2" },
+		// { id: 6, expression: "1-5/2" },
+		// { id: 7, expression: "1-5/2" },
+		// { id: 8, expression: "1-5/2" },
+		// { id: 9, expression: "1-5/2" },
+		// { id: 10, expression: "1-5/2" },
+		// { id: 11, expression: "1-5/2" },
+		// { id: 12, expression: "1-5/2" },
+		// { id: 13, expression: "1-5/2" },
+		// { id: 14, expression: "1-5/2" },
+		// { id: 15, expression: "1-5/2" },
+		// { id: 16, expression: "1-5/2" },
+		// { id: 17, expression: "1-5/2" },
+		// { id: 18, expression: "1-5/2" },
 	],
 	nowOperator: "",
 	valueManager: new ValueManager(),
 	receiver: new Receiver(),
+	historyItem: '',
 };
 
 const HomeReducer = (state = initialState, action) => {
-	console.log(action);
-	switch (action.type) {
-		case actionsTypes.DELETE_ALL_HISTORY: {
-			state.valueManager.value = 0;
-			state.receiver.showingResult = false;
-			return {
-				...state,
-				history: [],
-				newExpression: ''
-			}
-		}
-	}
-
-
-
 	const calcFac = {};
 
 	calcFac["PLUS"] = () => {
+		state.historyItem = state.historyItem + ' + ';
 		const command = new PlusCommand(state.valueManager.value);
 		return command;
 	};
 	calcFac["MINUS"] = () => {
+		state.historyItem = state.historyItem + ' - ';
 		const command = new MinusCommand(state.valueManager.value);
 		return command;
 	};
 	calcFac["MULTIPLY"] = () => {
+		state.historyItem = state.historyItem + ' * ';
 		const command = new MultiplyCommand(state.valueManager.value);
 		return command;
 	};
 	calcFac["DIVIDE"] = () => {
+		state.historyItem = state.historyItem + ' / ';
 		const command = new DevideCommand(state.valueManager.value);
 		return command;
 	};
+
 
 	if (calcFac.hasOwnProperty(action.type)) {
 		let command;
 		if (state.nowOperator === "") {
 			command = new FirstValue(state.valueManager.value);
-		} else {
+		} else if (state.nowOperator === "EQUAL") {
+			state.valueManager.value = 0;
+			state.nowOperator = action.type;
+			return { ...state };
+		}
+		else {
 			command = calcFac[state.nowOperator]();
 		}
 		state.receiver.addCommand(command);
 		state.receiver.showingResult = true;
-		// console.log(state.valueManager.value);
+
+		state.historyItem = state.historyItem + state.valueManager.value;
+
 		state.valueManager.value = 0;
 		state.nowOperator = action.type;
 		return { ...state };
@@ -88,18 +86,33 @@ const HomeReducer = (state = initialState, action) => {
 				return { ...state };
 
 			case actionsTypes.CLEAR_EXPRESSION:
+				state.nowOperator = "";
 				state.valueManager.value = 0;
 				state.receiver.showingResult = false;
 				return { ...state };
 
+			case actionsTypes.CLEAR_ALL:
+				state.nowOperator = "";
+				state.valueManager.value = 0;
+				state.receiver.showingResult = false;
+				return { ...state, history: [] };
+
 			case actionsTypes.EQUAL:
 				state.receiver.addCommand(calcFac[state.nowOperator]());
 				state.receiver.showingResult = true;
-				// console.log(state.receiver.execute());
-				// console.log(state.receiver.result);
-				// state.valueManager.value = state.receiver.execute();
-				state.valueManager.value = 0;
-				return { ...state };
+				state.nowOperator = action.type;
+				state.historyItem = state.historyItem + state.valueManager.value;
+
+				let obj = { id: 19, expression: state.historyItem };
+				state.historyItem = '' + state.receiver.execute();
+				return { ...state, history: [obj, ...state.history,] };
+
+			case actionsTypes.DELETE_ALL_HISTORY: {
+				return {
+					...state,
+					history: [],
+				}
+			}
 
 			default:
 				return state;

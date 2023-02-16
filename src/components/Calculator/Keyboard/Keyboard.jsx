@@ -2,24 +2,21 @@ import Button from '@components/Button/Button';
 import k from './Keyboard.module.css'
 import PropTypes from 'prop-types';
 
-const Keyboard = ({ onClearClickSumbol, onDivideClick, onEqualClick, onNumClick, onPlusClick, onMinusClick, onMultiplyClick, onClearExpressionClick, onDotClick, onBracketClick }) => {
-	// console.log(onNumClick);
-	// console.log(onPlusClick);
-	// console.log(onEqualClick);
+const Keyboard = ({ onClearExpressionClick, onDivideClick, onEqualClick, onNumClick, onPlusClick, onMinusClick, onMultiplyClick, onClearAllClick, onDotClick, onBracketClick }) => {
 
 	return (
 		<div className={k.keyboard_wrapper}>
-			<Button name={'C'} event={() => onClearClickSumbol()} />
+			<Button name={'C'} event={() => onClearExpressionClick()} />
 			<Button name={'7'} event={() => onNumClick(7)} />
 			<Button name={'8'} event={() => onNumClick(8)} />
 			<Button name={'9'} event={() => onNumClick(9)} />
-			<Button name={'*'} event={() => onMultiplyClick()} />
-			<Button name={'-'} event={() => onMinusClick()} />
+			<Button name={'*'} event={() => onMultiplyClick('*')} />
+			<Button name={'-'} event={() => onMinusClick('-')} />
 			<Button name={'4'} event={() => onNumClick(4)} />
 			<Button name={'5'} event={() => onNumClick(5)} />
 			<Button name={'6'} event={() => onNumClick(6)} />
-			<Button name={'/'} event={() => onDivideClick()} />
-			<Button name={'+'} event={() => onPlusClick()} />
+			<Button name={'/'} event={() => onDivideClick('/')} />
+			<Button name={'+'} event={() => onPlusClick('+')} />
 			<Button name={'1'} event={() => onNumClick(1)} />
 			<Button name={'2'} event={() => onNumClick(2)} />
 			<Button name={'3'} event={() => onNumClick(3)} />
@@ -28,7 +25,7 @@ const Keyboard = ({ onClearClickSumbol, onDivideClick, onEqualClick, onNumClick,
 			<Button name={'('} event={() => onBracketClick('(')} />
 			<Button name={'0'} event={() => onNumClick(0)} />
 			<Button name={')'} event={() => onBracketClick(')')} />
-			<Button name={'CE'} event={() => onClearExpressionClick()} />
+			<Button name={'CE'} event={() => onClearAllClick()} />
 		</div>
 	)
 }

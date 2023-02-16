@@ -7,13 +7,10 @@ export const Receiver = class {
 	}
 
 	execute() {
-		// console.log(this.commandList);
 		let result = 0;
 		for (let i = 0; i < this.counter; i++) {
-			console.log(this.commandList[i].execute(result));
 			result = this.commandList[i].execute(result);
 		}
-		// console.log(result);
 		return result;
 	}
 
