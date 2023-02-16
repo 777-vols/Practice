@@ -21,7 +21,7 @@ const Keyboard = ({ onClearExpressionClick, onDivideClick, onEqualClick, onNumCl
 			<Button name={'2'} event={() => onNumClick(2)} />
 			<Button name={'3'} event={() => onNumClick(3)} />
 			<Button name={'='} event={() => onEqualClick()} />
-			<Button name={'.'} event={() => onDotClick('.')} />
+			<Button name={'.'} event={() => onNumClick('.')} />
 			<Button name={'('} event={() => onBracketClick('(')} />
 			<Button name={'0'} event={() => onNumClick(0)} />
 			<Button name={')'} event={() => onBracketClick(')')} />

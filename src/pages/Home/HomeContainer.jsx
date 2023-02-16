@@ -3,12 +3,9 @@ import Home from './Home'
 import * as actions from '@store/actions/actions'
 import { bindActionCreators } from "redux";
 
-
 const MapStateToProps = (state) => {
 	return {
 		HomePage: state.HomePage,
-		value: state.HomePage.valueManager.value,
-		receiver: state.HomePage.receiver
 	}
 }
 const MapDispatchToProps = (dispatch) => {

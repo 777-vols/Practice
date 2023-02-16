@@ -8,25 +8,7 @@ import { ValueManager } from '@utils/ValueManager'
 import { Receiver } from '@utils/Receiver'
 
 let initialState = {
-	history: [
-		{ id: 1, expression: "1+2*3" },
-		{ id: 2, expression: "9/2*3" },
-		{ id: 4, expression: "1-5/2" },
-		{ id: 5, expression: "1-5/2" },
-		// { id: 6, expression: "1-5/2" },
-		// { id: 7, expression: "1-5/2" },
-		// { id: 8, expression: "1-5/2" },
-		// { id: 9, expression: "1-5/2" },
-		// { id: 10, expression: "1-5/2" },
-		// { id: 11, expression: "1-5/2" },
-		// { id: 12, expression: "1-5/2" },
-		// { id: 13, expression: "1-5/2" },
-		// { id: 14, expression: "1-5/2" },
-		// { id: 15, expression: "1-5/2" },
-		// { id: 16, expression: "1-5/2" },
-		// { id: 17, expression: "1-5/2" },
-		// { id: 18, expression: "1-5/2" },
-	],
+	history: [],
 	nowOperator: "",
 	valueManager: new ValueManager(),
 	receiver: new Receiver(),
@@ -88,12 +70,14 @@ const HomeReducer = (state = initialState, action) => {
 			case actionsTypes.CLEAR_EXPRESSION:
 				state.nowOperator = "";
 				state.valueManager.value = 0;
+				state.historyItem = '';
 				state.receiver.showingResult = false;
 				return { ...state };
 
 			case actionsTypes.CLEAR_ALL:
 				state.nowOperator = "";
 				state.valueManager.value = 0;
+				state.historyItem = '';
 				state.receiver.showingResult = false;
 				return { ...state, history: [] };
 
@@ -103,7 +87,7 @@ const HomeReducer = (state = initialState, action) => {
 				state.nowOperator = action.type;
 				state.historyItem = state.historyItem + state.valueManager.value;
 
-				let obj = { id: 19, expression: state.historyItem };
+				let obj = { id: state.history.length, expression: state.historyItem };
 				state.historyItem = '' + state.receiver.execute();
 				return { ...state, history: [obj, ...state.history,] };
 

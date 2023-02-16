@@ -19,18 +19,4 @@ export const Receiver = class {
 		this.counter += 1;
 	}
 
-	// undo() {
-	// 	if (this.counter > 0) {
-	// 		this.counter -= 1;
-	// 	} else {
-	// 		this.counter = 0;
-	// 	}
-	// }
-
-	// redo() {
-	// 	if (this.counter < this.commandList.length) {
-	// 		this.counter += 1;
-	// 	} else {
-	// 	}
-	// }
 };
