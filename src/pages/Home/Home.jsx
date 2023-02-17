@@ -1,11 +1,14 @@
 import Calculator from "@components/Calculator/Calculator";
+import React from 'react';
 
-const Home = (props) => {
-	return (
-		<div>
-			<Calculator props={props} />
-		</div>
-	)
+class Home extends React.Component {
+	render() {
+		return (
+			<div>
+				<Calculator props={this.props} />
+			</div>
+		)
+	}
 }
 
 export default Home;

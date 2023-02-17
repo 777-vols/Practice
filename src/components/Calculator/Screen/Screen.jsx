@@ -2,21 +2,6 @@ import s from './Screen.module.css'
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// const Screen = ({ receiver, value, isDot }) => {
-
-// 	let isDotFunc = () => {
-// 		let Val = value;
-// 		if (isDot === true)
-// 			Val += '.'
-// 		return Val
-// 	}
-
-// 	return (
-// 		<div className={s.screen_wrapper}>
-// 			<a className={s.result}>{receiver.showingResult ? receiver.execute() : isDotFunc()}</a>
-// 		</div>
-// 	)
-// }
 
 class Screen extends React.Component {
 	render() {

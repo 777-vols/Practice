@@ -2,19 +2,23 @@ import c from './Index.module.css';
 import History from './History/History';
 import Screen from './Screen/Screen';
 import Keyboard from './Keyboard/Keyboard';
+import React from 'react';
 
-const Calculator = (props) => {
-	return (
-		<div className={c.calc}>
-			<Keyboard onNumClick={props.props.actions.onNumClick} onPlusClick={props.props.actions.onPlusClick} onMinusClick={props.props.actions.onMinusClick}
-				onDivideClick={props.props.actions.onDivideClick} onMultiplyClick={props.props.actions.onMultiplyClick} onEqualClick={props.props.actions.onEqualClick}
-				onClearAllClick={props.props.actions.onClearAllClick} onClearExpressionClick={props.props.actions.onClearExpressionClick} />
+class Calculator extends React.Component {
 
-			<History allHistory={props.props.HomePage.history} />
+	render() {
+		return (
+			<div className={c.calc}>
+				<Keyboard onNumClick={this.props.props.actions.onNumClick} onPlusClick={this.props.props.actions.onPlusClick} onMinusClick={this.props.props.actions.onMinusClick}
+					onDivideClick={this.props.props.actions.onDivideClick} onMultiplyClick={this.props.props.actions.onMultiplyClick} onEqualClick={this.props.props.actions.onEqualClick}
+					onClearAllClick={this.props.props.actions.onClearAllClick} onClearExpressionClick={this.props.props.actions.onClearExpressionClick} />
 
-			<Screen receiver={props.props.HomePage.receiver} value={props.props.HomePage.valueManager.value} isDot={props.props.HomePage.valueManager.dot} />
-		</div>
-	)
+				<History allHistory={this.props.props.HomePage.history} />
+
+				<Screen receiver={this.props.props.HomePage.receiver} value={this.props.props.HomePage.valueManager.value} isDot={this.props.props.HomePage.valueManager.dot} />
+			</div>
+		)
+	}
 };
 
 export default Calculator;
